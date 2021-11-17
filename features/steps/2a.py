@@ -35,7 +35,8 @@ def when(context):
     confirm_button = context.driver.find_element_by_id("confirm")
     confirm_button.click()
 
-@then("be redirect for login page")
+
+@then("Then the user should be redirected for login page")
 def then(context):
     WebDriverWait(context.driver, 60).until(expected_conditions.visibility_of_element_located(
         (By.ID, "login")))
