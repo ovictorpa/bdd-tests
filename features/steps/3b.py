@@ -42,6 +42,5 @@ def when(context):
 
 @then("the system shows a not found message")
 def then(context):
-    WebDriverWait(context.driver, 60).until(expected_conditions.text_to_be_present_in_element(
-        (By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/app-glossary/div/app-small-header/div[2]/div[3]/div'),
-        "No results found"))
+    WebDriverWait(context.driver, 60).until(expected_conditions.visibility_of_element_located(
+        (By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/app-glossary/div/app-small-header/div[2]/div[3]/div')))
