@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions
 @given("user in the Edit Profile page")
 def given(context):
     context.driver = webdriver.Chrome(
-        "C:/Users/Victor/PycharmProjects/test-bdd/features/steps/drivers/chromedriver.exe")
+        "C:/Users/Victor/PycharmProjects/test-bdd/features/edit-profile/features/steps/utils/drivers/chromedriver.exe")
     context.driver.get("https://homologacao.leadfortaleza.com.br/ead/login")
     context.driver.maximize_window()
     username_field = context.driver.find_element_by_id("login")
@@ -21,8 +21,10 @@ def given(context):
     login_button.click()
 
     WebDriverWait(context.driver, 40).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner')))
-    while context.driver.find_element_by_xpath('/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner').is_displayed():
+        expected_conditions.element_to_be_clickable(
+            (By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner')))
+    while context.driver.find_element_by_xpath(
+            '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner').is_displayed():
         pass
 
     avatar_button = context.driver.find_element_by_id("avatar")
@@ -33,9 +35,12 @@ def given(context):
     editprofile_button.click()
 
     WebDriverWait(context.driver, 40).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner')))
-    while context.driver.find_element_by_xpath('/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner').is_displayed():
+        expected_conditions.element_to_be_clickable(
+            (By.XPATH, '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner')))
+    while context.driver.find_element_by_xpath(
+            '/html/body/app-root/app-sidebar-layout/div/div/ngx-spinner').is_displayed():
         pass
+
 
 @when("fills out all the required informations and clicks in Save Profile")
 def when(context):
